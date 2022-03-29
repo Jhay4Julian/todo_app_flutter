@@ -9,6 +9,9 @@ class TodoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: TodoList(),
+      theme: ThemeData(
+        primarySwatch: Colors.red
+      ),
     );
   }
 }
@@ -27,7 +30,8 @@ class _TodoListState extends State<TodoList> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Center(child: const Text('To-do list')),
+          elevation: 0,
+          title: Center(child: const Text('To-Do List'),),
         ),
         body: ListView(children: _getItems(),),
         floatingActionButton: FloatingActionButton(
@@ -35,6 +39,7 @@ class _TodoListState extends State<TodoList> {
           child: const Icon(Icons.add),
           tooltip: 'Add Item',
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       );
   }
 
@@ -59,9 +64,10 @@ class _TodoListState extends State<TodoList> {
       context: context, 
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Add a task'),
+          title: const Text('Add Task'),
           content: TextField(
             controller: _textFieldController,
+            decoration: InputDecoration(hintText: 'enter task'),
           ),
           actions: [
             TextButton(
