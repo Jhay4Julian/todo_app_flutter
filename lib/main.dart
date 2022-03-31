@@ -8,6 +8,7 @@ class TodoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: TodoList(),
       theme: ThemeData(
         primarySwatch: Colors.red
@@ -31,7 +32,7 @@ class _TodoListState extends State<TodoList> {
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
-          title: Center(child: const Text('To-Do List'),),
+          title: const Center(child: Text('To-Do List'),),
         ),
         body: ListView(children: _getItems(),),
         floatingActionButton: FloatingActionButton(
@@ -67,7 +68,7 @@ class _TodoListState extends State<TodoList> {
           title: const Text('Add Task'),
           content: TextField(
             controller: _textFieldController,
-            decoration: InputDecoration(hintText: 'enter task'),
+            decoration: const InputDecoration(hintText: 'enter task'),
           ),
           actions: [
             TextButton(
